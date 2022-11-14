@@ -2,6 +2,7 @@
 .env
 
 ./backend/node_modules
+./backend/lib
 ./backend/.env
 
 ./frontend/node_modules
