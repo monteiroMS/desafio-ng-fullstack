@@ -18,6 +18,7 @@ User.init({
   },
   username: {
     allowNull: false,
+    unique: true,
     type: STRING,
   },
   password: {
@@ -30,10 +31,12 @@ User.init({
   },
 }, {
   sequelize: db,
-  modelName: 'Users',
+  modelName: 'User',
+  tableName: 'Users',
   timestamps: false,
 });
 
 User.belongsTo(Account, { foreignKey: 'accountId', as: 'account' });
+Account.hasOne(User, { foreignKey: 'accountId', as: 'user' });
 
 export default User;

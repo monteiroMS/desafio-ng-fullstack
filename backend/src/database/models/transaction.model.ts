@@ -31,12 +31,15 @@ Transaction.init({
   },
 }, {
   sequelize: db,
-  modelName: 'Transactions',
+  modelName: 'Transaction',
+  tableName: 'Transactions',
   timestamps: true,
   updatedAt: false,
 });
 
 Transaction.belongsTo(Account, { foreignKey: 'debitedAccountId', as: 'debitedFrom' });
 Transaction.belongsTo(Account, { foreignKey: 'creditedAccountId', as: 'creditedIn' });
+Account.hasMany(Transaction, { foreignKey: 'debitedAccountId', as: 'debitedAccount' });
+Account.hasMany(Transaction, { foreignKey: 'creditedAccountId', as: 'creditedAccount' });
 
 export default Transaction;
