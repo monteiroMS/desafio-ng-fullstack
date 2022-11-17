@@ -41,6 +41,5 @@ export default class TransactionController {
       .status(statusCodes.INTERNAL_ERROR)
       .json({ message: error.message });
     }
-    
   }
 }

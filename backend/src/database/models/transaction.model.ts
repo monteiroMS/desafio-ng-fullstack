@@ -1,3 +1,4 @@
+import { DECIMAL } from 'sequelize';
 import { Model, INTEGER } from 'sequelize';
 import db from '.';
 import Account from './account.model';
@@ -27,7 +28,7 @@ Transaction.init({
   },
   value: {
     allowNull: false,
-    type: INTEGER,
+    type: DECIMAL(10, 2),
   },
 }, {
   sequelize: db,

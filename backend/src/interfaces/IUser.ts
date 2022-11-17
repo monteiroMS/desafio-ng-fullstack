@@ -3,4 +3,8 @@ export type IUser = {
   username: string,
   password: string,
   accountId?: number,
+  account?: {
+    id: 1,
+    balance: 100,
+  },
 };
