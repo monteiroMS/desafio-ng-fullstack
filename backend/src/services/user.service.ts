@@ -59,6 +59,11 @@ export default class UserService implements ICRUDService<IUser> {
     return user;
   }
 
+  public async getOneByUsername(username: string): Promise<IUser | null> {
+    const user = await this._model.findOne({ where: { username } });
+    return user;
+  }
+
   public async update(id: number, obj: IUser): Promise<number> {
     const [affectedRows] = await this._model.update(
       { ...obj },
