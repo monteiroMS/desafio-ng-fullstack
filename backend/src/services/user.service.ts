@@ -15,9 +15,8 @@ export default class UserService implements ICRUDService<IUser> {
   ) {}
 
   public async login({ username, password }: IUser): Promise<string> {
-    const user = await this._model.findOne(
-      { where: { username } },
-    );
+    const user = await this.getOneByUsername(username);
+    
     if (!user) throw new Error('Username not found');
 
     const isValid = bcrypt.compareSync(password, user.password)
