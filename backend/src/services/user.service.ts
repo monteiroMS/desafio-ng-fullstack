@@ -23,7 +23,7 @@ export default class UserService implements ICRUDService<IUser> {
     const isValid = bcrypt.compareSync(password, user.password)
     if (!isValid) throw new Error('Wrong password');
     
-    const token = jwt.sign({ username }, jwtSecret as string);
+    const token = jwt.sign({ username }, jwtSecret as string, { expiresIn: '24h' });
     return token;
   }
 
