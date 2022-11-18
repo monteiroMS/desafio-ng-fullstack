@@ -2,12 +2,30 @@ import { Request, Response } from "express";
 import statusCodes from "../helpers/statusCodes";
 import UserService from "../services/user.service";
 import TransactionService from "../services/transaction.service";
+import { IUser } from "../interfaces/IUser";
+import getDate from "../helpers/getDate";
 
 export default class UserController {
   constructor(
     private _userService: UserService = new UserService(),
     private _transactionService: TransactionService = new TransactionService(),
   ) {}
+
+  private async getAllTransactions(user: IUser) {
+    const cashIn = await this._transactionService
+      .getCashIn(user.accountId as number);
+    const cashOut = await this._transactionService
+      .getCashOut(user.accountId as number);
+    return { cashIn, cashOut };
+  }
+
+  private async getTransactionsByDate(user: IUser, date: string) {
+    const cashIn = await this._transactionService
+      .getCashInByDate(user.accountId as number, date);
+    const cashOut = await this._transactionService
+      .getCashOutByDate(user.accountId as number, date);
+    return { cashIn, cashOut };
+  }
 
   public async login(req: Request, res: Response) {
     try {
@@ -31,7 +49,6 @@ export default class UserController {
       .status(statusCodes.INTERNAL_ERROR)
       .json({ message: error.message });
     }
-
   }
 
   public async getByUsername(req: Request, res: Response) {
@@ -58,11 +75,26 @@ export default class UserController {
       });
     }
 
-    const cashIn = await this._transactionService
-      .getCashIn(user.accountId as number);
-    const cashOut = await this._transactionService
-      .getCashOut(user.accountId as number);
+    const transactions = await this.getAllTransactions(user);
 
-    return res.status(statusCodes.OK).json({ cashIn, cashOut });
+    return res.status(statusCodes.OK).json(transactions);
+  }
+
+  public async filterTransactionsByDate(req: Request, res: Response) {
+    const { username } = req.params;
+    const { date } = req.body;
+
+    const user = await this._userService.getOneByUsername(username);
+
+    if (!user) {
+      return res.status(statusCodes.NOT_FOUND).json({
+        message: 'User not found',
+      });
+    }
+
+    const transactions = await this
+      .getTransactionsByDate(user, date);
+
+    return res.status(statusCodes.OK).json(transactions);
   }
 }
