@@ -14,4 +14,18 @@ export default class TransactionService {
     );
     return newTransaction;
   }
+
+  public async getCashOut(accountId: number) {
+    const cashOut = await this._model.findAll(
+      { where: { debitedAccountId: accountId } },
+    );
+    return cashOut;
+  }
+
+  public async getCashIn(accountId: number) {
+    const cashIn = await this._model.findAll(
+      { where: { creditedAccountId: accountId } },
+    );
+    return cashIn;
+  }
 }
