@@ -31,4 +31,17 @@ export default class UserController {
     }
 
   }
+
+  public async getByUsername(req: Request, res: Response) {
+    const { username } = req.params;
+    const user = await this._service.getOneByUsername(username);
+
+    if (!user) {
+      return res.status(statusCodes.NOT_FOUND).json({
+        message: 'User not found',
+      });
+    }
+
+    return res.status(200).json(user);
+  }
 }

@@ -61,7 +61,11 @@ export default class UserService implements ICRUDService<IUser> {
   public async getOneByUsername(username: string): Promise<IUser | null> {
     const user = await this._model.findOne({
       where: { username },
-      include: [{ model: Account, as: 'account' }],
+      include: [{
+        model: Account,
+        as: 'account',
+      }],
+      attributes: { exclude: ['password'] },
     });
     return user;
   }

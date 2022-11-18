@@ -3,6 +3,7 @@ import * as dotenv from 'dotenv';
 import signInRouter from './routes/signin';
 import loginRouter from './routes/login';
 import transactionRouter from './routes/transaction';
+import userRouter from './routes/user';
 
 dotenv.config();
 
@@ -14,7 +15,8 @@ app.use(express.json());
 app
   .use(signInRouter)
   .use(loginRouter)
-  .use(transactionRouter);
+  .use(transactionRouter)
+  .use(userRouter);
 
 app.listen(PORT, () => {
   console.log(`O servidor está rodando em http://localhost:${PORT}`);

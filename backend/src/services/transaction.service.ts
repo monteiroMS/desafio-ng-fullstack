@@ -1,5 +1,3 @@
-import Account from '../database/models/account.model';
-import sequelize from '../database/models';
 import TransactionModel from "../database/models/transaction.model";
 import ITransaction from '../interfaces/ITransaction';
 import { Transaction } from 'sequelize';
