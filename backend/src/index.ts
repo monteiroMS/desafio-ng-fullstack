@@ -1,6 +1,23 @@
+import * as express from 'express';
+import * as dotenv from 'dotenv';
+import signInRouter from './routes/signin';
+import loginRouter from './routes/login';
+import transactionRouter from './routes/transaction';
+import userRouter from './routes/user';
 
-export function sayHelloWorld(world: string) {
-  return `Hello ${world}`;
-}
+dotenv.config();
 
-sayHelloWorld('world');
+const app = express();
+const PORT = process.env.PORT || 3001;
+
+app.use(express.json());
+  
+app
+  .use(signInRouter)
+  .use(loginRouter)
+  .use(transactionRouter)
+  .use(userRouter);
+
+app.listen(PORT, () => {
+  console.log(`O servidor está rodando em http://localhost:${PORT}`);
+});
