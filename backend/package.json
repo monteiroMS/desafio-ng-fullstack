@@ -7,10 +7,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "npx -y tsc",
     "lint": "tslint -c tslint.json src/**/*.ts",
-    "prepublish": "npm run build",
-    "start": "npm run build && node ./lib",
+    "start": "node .",
     "dev": "tsnd ./src",
-    "db:reset": "npx -y tsc && npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
+    "prestart": "npm run build && npm run db:reset",
+    "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all"
   },
   "keywords": [],
   "author": "",

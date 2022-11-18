@@ -65,7 +65,6 @@ export default class UserService implements ICRUDService<IUser> {
         model: Account,
         as: 'account',
       }],
-      attributes: { exclude: ['password'] },
     });
     return user;
   }

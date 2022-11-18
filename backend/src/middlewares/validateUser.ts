@@ -19,7 +19,7 @@ export default (req: Request, res: Response, next: NextFunction) => {
 
     if (!result.success) throw result.error;
 
-    return next();
+    next();
   } catch (error) {
     return res
       .status(statusCodes.BAD_REQUEST)
