@@ -1,11 +1,11 @@
 import axios from 'axios';
-import IUserInfo from '../interfaces/IUserInfo';
-import backendEndpoints from './backendEndpoints';
+import IUserInfo from '../../interfaces/IUserInfo';
+import backendEndpoints from '../backendEndpoints';
 
-export default async (userInfo: IUserInfo) => {
+export default async (userInfo: IUserInfo, type: 'login' | 'signin') => {
   try {
     const res = await axios.post(
-      backendEndpoints.login,
+      backendEndpoints[type],
       { ...userInfo },
     );
     return res.data;

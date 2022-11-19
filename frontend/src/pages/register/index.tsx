@@ -1,10 +1,10 @@
 import React from 'react';
 import UserForm from '../../components/userForm';
 
-function Login() {
+function Register() {
   return (
-    <UserForm type="login" />
+    <UserForm type="signin" />
   );
 }
 
-export default Login;
+export default Register;
