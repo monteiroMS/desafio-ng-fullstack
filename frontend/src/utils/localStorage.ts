@@ -20,3 +20,7 @@ createLocalStorage();
 export const saveUserOnLS = (user: IUser) => {
   localStorage.setItem(USER_KEY, JSON.stringify(user));
 };
+
+export const clearUser = () => {
+  localStorage.removeItem(USER_KEY);
+};

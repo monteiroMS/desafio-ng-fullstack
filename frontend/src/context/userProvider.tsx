@@ -26,7 +26,7 @@ const UserProvider = ({ children }: IReactChildren) => {
   const context = useMemo(() => ({
     user,
     setUser,
-  }), [user]);
+  }), [user, setUser]);
 
   return (
     <UserContext.Provider value={ context }>

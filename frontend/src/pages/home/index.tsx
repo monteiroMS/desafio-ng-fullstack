@@ -1,5 +1,6 @@
 import React, { useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
+import Header from '../../components/header';
 import { UserContext } from '../../context/userProvider';
 import { getUserFromLS } from '../../utils/localStorage';
 
@@ -21,7 +22,7 @@ function Home() {
   }, []);
 
   return (
-    <p>this is the homepage</p>
+    <Header />
   );
 }
 
