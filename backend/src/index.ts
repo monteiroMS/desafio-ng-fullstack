@@ -1,5 +1,6 @@
 import * as express from 'express';
 import * as dotenv from 'dotenv';
+import * as cors from 'cors';
 import signInRouter from './routes/signin';
 import loginRouter from './routes/login';
 import transactionRouter from './routes/transaction';
@@ -11,6 +12,7 @@ const app = express();
 const PORT = process.env.PORT || 3001;
 
 app.use(express.json());
+app.use(cors());
   
 app
   .use(signInRouter)
