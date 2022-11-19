@@ -3,7 +3,6 @@ import statusCodes from "../helpers/statusCodes";
 import UserService from "../services/user.service";
 import TransactionService from "../services/transaction.service";
 import { IUser } from "../interfaces/IUser";
-import getDate from "../helpers/getDate";
 
 export default class UserController {
   constructor(
@@ -30,8 +29,8 @@ export default class UserController {
   public async login(req: Request, res: Response) {
     try {
       const { username, password } = req.body;
-      const token = await this._userService.login({ username, password });
-      return res.status(statusCodes.OK).json({ token });
+      const user = await this._userService.login({ username, password });
+      return res.status(statusCodes.OK).json(user);
     } catch (error) {
       if (error instanceof Error) return res
         .status(statusCodes.BAD_REQUEST)
@@ -42,8 +41,8 @@ export default class UserController {
   public async create(req: Request, res: Response) {
     try {
       const { username, password } = req.body;
-      const token = await this._userService.create({ username, password });
-      return res.status(statusCodes.CREATED).json({ token });
+      const user = await this._userService.create({ username, password });
+      return res.status(statusCodes.CREATED).json(user);
     } catch (error) {
       if (error instanceof Error) return res
       .status(statusCodes.INTERNAL_ERROR)

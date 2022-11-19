@@ -1,20 +1,22 @@
-const TOKEN_KEY = 'user_token';
+import IUser from '../interfaces/IUser';
+
+const USER_KEY = 'user';
 
 export const getUserFromLS = () => {
-  const user = localStorage.getItem(TOKEN_KEY);
+  const user = localStorage.getItem(USER_KEY);
   if (!user) return null;
   return JSON.parse(user);
 };
 
 export const createLocalStorage = () => {
-  const user = localStorage.getItem(TOKEN_KEY);
+  const user = localStorage.getItem(USER_KEY);
   if (!user) {
-    localStorage.setItem(TOKEN_KEY, '');
+    localStorage.setItem(USER_KEY, '');
   }
 };
 
 createLocalStorage();
 
-export const saveTokenOnLS = (token: string) => {
-  localStorage.setItem(TOKEN_KEY, token);
+export const saveUserOnLS = (user: IUser) => {
+  localStorage.setItem(USER_KEY, JSON.stringify(user));
 };

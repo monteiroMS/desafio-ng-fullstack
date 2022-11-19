@@ -6,6 +6,7 @@ import Account from "../database/models/account.model";
 import getHash from "../helpers/getHash";
 import * as jwt from 'jsonwebtoken';
 import * as bcrypt from 'bcrypt';
+import IFrontEndUser from '../interfaces/IFrontEndUser';
 
 const jwtSecret = process.env.JWT_SECRET;
 
@@ -14,7 +15,7 @@ export default class UserService implements ICRUDService<IUser> {
     private _model = User,
   ) {}
 
-  public async login({ username, password }: IUser): Promise<string> {
+  public async login({ username, password }: IUser): Promise<IFrontEndUser> {
     const user = await this.getOneByUsername(username);
 
     if (!user) throw new Error('Username not found');
@@ -23,10 +24,15 @@ export default class UserService implements ICRUDService<IUser> {
     if (!isValid) throw new Error('Wrong password');
     
     const token = jwt.sign({ username }, jwtSecret as string, { expiresIn: '24h' });
-    return token;
+
+    return {
+      token,
+      username: user.username,
+      balance: user.account?.balance,
+    };
   }
 
-  public async create(newUser: IUser): Promise<string> {
+  public async create(newUser: IUser): Promise<IFrontEndUser> {
     await sequelize.transaction(async (t) => {
       const { id } = await Account.create(
         { balance: 100 },

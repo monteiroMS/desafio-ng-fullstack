@@ -5,7 +5,7 @@ import Loading from '../../components/loading';
 import { IHandlePassword } from '../../interfaces/IHandlePassword';
 import IUserInfo from '../../interfaces/IUserInfo';
 import isUserValid from '../../utils/isUserValid';
-import { saveTokenOnLS } from '../../utils/localStorage';
+import { saveUserOnLS } from '../../utils/localStorage';
 import requestLogin from '../../utils/requestLogin';
 
 const INITIAL_USER_INFO = {
@@ -30,7 +30,7 @@ function Login() {
       setError(data.message);
       setLoading(false);
     } else {
-      saveTokenOnLS(data.token);
+      saveUserOnLS(data);
       setLoading(false);
       navigate('/');
     }
