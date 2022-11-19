@@ -1,16 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
-import IUser from '../../interfaces/IUser';
+import { UserContext } from '../../context/userProvider';
 import { getUserFromLS } from '../../utils/localStorage';
 
-const INITIAL_USER = {
-  token: '',
-  username: '',
-  balance: 0,
-}
-
 function Home() {
-  const [user, setUser] = useState<IUser>(INITIAL_USER);
+  const { setUser } = useContext(UserContext);
 
   const navigate = useNavigate();
 
