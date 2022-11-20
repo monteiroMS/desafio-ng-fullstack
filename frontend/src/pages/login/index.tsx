@@ -1,9 +1,18 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import UserForm from '../../components/userForm';
 
 function Login() {
   return (
-    <UserForm type="login" />
+    <div>
+      <UserForm type="login" />
+      <p>Ainda não é cadastrado?</p>
+      <Link
+        to="/register"
+      >
+        Criar conta NG.CASH
+      </Link>
+    </div>
   );
 }
 
