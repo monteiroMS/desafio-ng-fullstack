@@ -60,7 +60,12 @@ export default class UserController {
       });
     }
 
-    return res.status(statusCodes.OK).json(user);
+    return res.status(statusCodes.OK).json({
+      id: user.id,
+      username: user.username,
+      accountId: user.accountId,
+      account: user.account,
+    });
   }
 
   public async getTransactionsByUsername(req: Request, res: Response) {

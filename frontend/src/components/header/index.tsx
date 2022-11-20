@@ -24,6 +24,7 @@ function Header() {
           <button
             type="button"
             onClick={ logout }
+            className={ styles.btn }
           >
             Sair
           </button>

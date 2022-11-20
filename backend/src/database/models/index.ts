@@ -1,5 +1,4 @@
 import { Sequelize } from 'sequelize';
-import * as config from '../config/database';
 
 export default new Sequelize({
   username: process.env.DB_USER,

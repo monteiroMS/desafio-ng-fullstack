@@ -1,6 +1,5 @@
 import { NextFunction, Request, Response } from 'express';
 import statusCodes from '../helpers/statusCodes';
-import { parseCommandLine } from 'typescript';
 import { z }from 'zod';
 
 const userSchema = z.object({

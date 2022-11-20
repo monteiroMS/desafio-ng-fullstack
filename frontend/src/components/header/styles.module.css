@@ -24,3 +24,14 @@
 .img {
   height: 50px;
 }
+
+.btn {
+  border: 2px solid black;
+  background-color: transparent;
+}
+
+.btn:hover {
+  background-color: black;
+  color: white;
+  cursor: pointer;
+}
