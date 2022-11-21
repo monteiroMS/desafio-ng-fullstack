@@ -18,10 +18,10 @@ Para rodar esta aplicação é recomendado possuir Node(19.0.1), Docker(20.10.21
 Clone a aplicação para um repositório no seu computador, entre na pasta da aplicação e execute o comando
 
 ```
-npm install
+npm start
 ```
 
-Em seguida, na pasta raiz da aplicação, basta rodar o comando `npm start` e esperar os contâineres db, app_backend e app_frontend subirem
+e aguarde os contâineres db, app_backend e app_frontend subirem
 
 Após o container do backend finalizar a execução dos seus scripts, já deve ser possível acessar a aplicação pela URL `http://localhost:3000/`.
 
