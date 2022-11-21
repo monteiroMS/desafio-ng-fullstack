@@ -15,7 +15,7 @@ Para rodar esta aplicação é recomendado possuir Node(19.0.1), Docker(20.10.21
 
 ## Como rodar a aplicação localmente
 
-Clone a aplicação para um repositório no seu computador, entre na pasta da aplicação e execute o comando
+Clone a aplicação para um repositório no seu computador, entre na pasta da aplicação, execute o comando
 
 ```
 npm start
@@ -48,4 +48,4 @@ O banco de dados já deve estar populado ao iniciar a aplicação. Para testar a
   
 ### Histórico da construção
 
- As etapa da construção da aplicação estão separadas nas branches deste repositório.
+ As etapas da construção da aplicação estão separadas nas branches deste repositório.
