@@ -15,7 +15,7 @@ Para rodar esta aplicação é recomendado possuir Node(19.0.1), Docker(20.10.21
 
 ## Como rodar a aplicação localmente
 
-Clone a aplicação para um repositório no seu computador, entre na pasta da aplicação, execute o comando
+Clone a aplicação para um diretório no seu computador, entre na pasta da aplicação, execute o comando
 
 ```
 npm start
