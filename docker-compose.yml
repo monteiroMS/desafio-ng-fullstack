@@ -11,6 +11,9 @@ services:
     depends_on:
       - backend
     restart: always
+    environment:
+      - REACT_APP_BACKEND_HOST=localhost
+      - REACT_APP_BACKEND_PORT=3001
   backend:
     container_name: app_backend
     build: ./backend
