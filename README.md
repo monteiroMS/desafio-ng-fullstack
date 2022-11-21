@@ -37,7 +37,7 @@ O banco de dados já deve estar populado ao iniciar a aplicação. Para testar a
 
 ### Manipulação de estado
 
-  * Foi utilizado o `ContextAPI`;
+ Foi utilizado o `ContextAPI`;
 
 ### Estilização
 
