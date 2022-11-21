@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import Balance from '../../components/balance';
 import Header from '../../components/header';
 import NewTransaction from '../../components/newTransaction';
+import TransactionHistory from '../../components/transactionHistory';
 import { UserContext } from '../../context/userProvider';
 import requestUser from '../../utils/api/requestUser';
 import { getUserFromLS } from '../../utils/localStorage';
@@ -34,6 +35,7 @@ function Home() {
       <Balance />
       <main>
         <NewTransaction />
+        <TransactionHistory />
       </main>
     </div>
   );

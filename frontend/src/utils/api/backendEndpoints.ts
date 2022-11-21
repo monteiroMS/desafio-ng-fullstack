@@ -7,4 +7,5 @@ export default {
   signin: `${BASE_URL}/signin`,
   transaction: `${BASE_URL}/transaction`,
   user: `${BASE_URL}/user/`,
+  getTransactions: `${BASE_URL}/transactions/`,
 };

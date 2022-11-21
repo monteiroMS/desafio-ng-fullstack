@@ -8,8 +8,10 @@ type UserContextType = {
 }
 
 const INITIAL_USER = {
-  token: '',
+  id: 0,
   username: '',
+  accountId: 0,
+  account: { balance: '', id: 0 },
   balance: 0,
 };
 

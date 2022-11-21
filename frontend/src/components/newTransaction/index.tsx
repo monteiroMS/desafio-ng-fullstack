@@ -11,7 +11,7 @@ import { getUserFromLS } from '../../utils/localStorage';
 const INITIAL_TRANSACTION = {
   fromUsername: '',
   toUsername: '',
-  value: 0,
+  value: '',
 };
 
 function NewTransaction() {
@@ -34,7 +34,7 @@ function NewTransaction() {
 
   const doTransaction = async (event: MouseEvent<HTMLButtonElement>) => {
     event.preventDefault();
-    if (user.balance < transaction.value) {
+    if (Number(user.account.balance) < Number(transaction.value)) {
       setError('Seu saldo é insuficiente para esta transação');
     } else {
       setLoading(true);
@@ -51,7 +51,10 @@ function NewTransaction() {
       } else {
         setUser({
           ...user,
-          balance: user.balance - transaction.value,
+          account: {
+            ...user.account,
+            balance: (Number(user.account.balance) - Number(transaction.value)).toFixed(2),
+          }
         });
         setLoading(false);
         setSuccess(true);
@@ -60,6 +63,7 @@ function NewTransaction() {
         }, 3000);
       }
     }
+    setTransaction(INITIAL_TRANSACTION);
   };
 
   return (
@@ -71,6 +75,7 @@ function NewTransaction() {
           <input
             type="text"
             name="toUsername"
+            value={ transaction.toUsername }
             onChange={ handleChange }
             placeholder="nome do usuário"
           />
@@ -85,6 +90,7 @@ function NewTransaction() {
           <input
             type="number"
             name="value"
+            value={ transaction.value }
             onChange={ handleChange }
             placeholder="0.00"
           />

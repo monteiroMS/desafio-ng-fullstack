@@ -1,6 +1,6 @@
 import axios from 'axios';
-import ITransaction from '../../interfaces/ITransaction';
-import backendEndpoints from '../backendEndpoints';
+import ITransaction from '../../interfaces/INewTransaction';
+import backendEndpoints from './backendEndpoints';
 
 export default async (transaction: ITransaction, authorization: string) => {
   try {
