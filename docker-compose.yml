@@ -1,16 +1,16 @@
 version: '3.9'
 
 services:
-  # frontend:
-  #   container_name: app_frontend
-  #   build: ./frontend
-  #   ports:
-  #     - 3000:3000
-  #   platform: linux/x86_64
-  #   working_dir: /app-frontend
-  #   depends_on:
-  #     - backend
-  #   restart: always
+  frontend:
+    container_name: app_frontend
+    build: ./frontend
+    ports:
+      - 3000:3000
+    platform: linux/x86_64
+    working_dir: /app-frontend
+    depends_on:
+      - backend
+    restart: always
   backend:
     container_name: app_backend
     build: ./backend

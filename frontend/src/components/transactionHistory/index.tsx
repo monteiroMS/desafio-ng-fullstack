@@ -18,6 +18,7 @@ function TransactionHistory() {
   const [error, setError] = useState('');
 
   useEffect(() => {
+    setError('');
     setReload(false);
     const getTransactions = async () => {
       const user = getUserFromLS();

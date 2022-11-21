@@ -11,7 +11,8 @@
     "prestart": "npm run build && npm run db:reset",
     "db:reset": "npx sequelize-cli db:drop && npx sequelize-cli db:create && npx sequelize-cli db:migrate && npx sequelize-cli db:seed:all",
     "lint": "eslint ./src --ext .ts",
-    "docker:restart": "docker-compose down && docker system prune && docker image prune --all && docker-compose up --build -d"
+    "docker:restart": "docker-compose down && docker system prune && docker image prune --all && docker-compose up --build -d",
+    "docker:start": "docker-compose up --build -d"
   },
   "keywords": [],
   "author": "",
