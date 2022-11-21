@@ -21,13 +21,6 @@ Clone a aplicação para um repositório no seu computador, entre na pasta da ap
 npm install
 ```
 
-Depois, é necessário criar um arquivo .env no repositório /frontend com o host e a porta escolhida para rodar o backend
-
-```
-REACT_APP_BACKEND_HOST=localhost
-REACT_APP_BACKEND_PORT=3001
-```
-
 Em seguida, na pasta raiz da aplicação, basta rodar o comando `npm start` e esperar os contâineres db, app_backend e app_frontend subirem
 
 Após o container do backend finalizar a execução dos seus scripts, já deve ser possível acessar a aplicação pela URL `http://localhost:3000/`.
