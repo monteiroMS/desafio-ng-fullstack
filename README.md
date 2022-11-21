@@ -11,7 +11,7 @@
 
 ## Requisitos
 
-Para rodar esta aplicação é necessário possuir o Node(19.0.1), Docker(20.10.21) e Docker-compose(2.5.0) instalados.
+Para rodar esta aplicação é recomendado possuir Node(19.0.1), Docker(20.10.21) e Docker-compose(2.5.0) instalados.
 
 ## Como rodar a aplicação localmente
 
