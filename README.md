@@ -37,10 +37,10 @@ Após o container do backend finalizar a execução dos seus scripts, já deve s
 ### Seeders
 O banco de dados já deve estar populado ao iniciar a aplicação. Para testar as funcionalidades do app, é possível utilizar as credenciais
 
-<p>username           password</p>
-<p>joaosilva         Senha@123</p>
-<p>marciapereira     Senha@456</p>
-<p>pedrolima         Senha@789</p>
+<p>username -> password</p>
+<p>joaosilva -> Senha@123</p>
+<p>marciapereira -> Senha@456</p>
+<p>pedrolima -> Senha@789</p>
 
 ### Manipulação de estado
 
