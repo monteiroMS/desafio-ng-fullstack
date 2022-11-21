@@ -17,6 +17,16 @@ router
     checkUsers,
     checkValue,
     (req: Request, res: Response) => controller.newTransaction(req, res),
+  )
+  .get(
+    '/transactions/:username',
+    auth,
+    (req: Request, res: Response) => controller.getTransactionsByUsername(req, res),
+  )
+  .get(
+    '/transactions/filter-by-date/:username',
+    auth,
+    (req: Request, res: Response) => controller.filterTransactionsByDate(req, res),
   );
 
 export default router;

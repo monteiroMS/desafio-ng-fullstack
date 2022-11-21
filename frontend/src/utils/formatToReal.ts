@@ -1,0 +1,1 @@
+export default (value: number) => `R$ ${value.toFixed(2).replace('.', ',')}`;
