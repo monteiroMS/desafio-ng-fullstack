@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import UserProvider from './context/userProvider';
+import FiltersProvider from './context/filtersProvider';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -12,9 +13,11 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <UserProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <FiltersProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </FiltersProvider>
     </UserProvider>
   </React.StrictMode>
 );

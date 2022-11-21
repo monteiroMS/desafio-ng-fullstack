@@ -7,6 +7,7 @@ import TransactionHistory from '../../components/transactionHistory';
 import { UserContext } from '../../context/userProvider';
 import requestUser from '../../utils/api/requestUser';
 import { getUserFromLS } from '../../utils/localStorage';
+import styles from './styles.module.css';
 
 function Home() {
   const { setUser } = useContext(UserContext);
@@ -33,7 +34,7 @@ function Home() {
     <div>
       <Header />
       <Balance />
-      <main>
+      <main className={ styles.main }>
         <NewTransaction />
         <TransactionHistory />
       </main>
