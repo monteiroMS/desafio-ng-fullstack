@@ -1,8 +1,8 @@
-import { Request, Response } from "express";
-import TransactionService from "../services/transaction.service";
-import UserService from "../services/user.service";
-import AccountService from "../services/account.service";
-import statusCodes from "../helpers/statusCodes";
+import { Request, Response } from 'express';
+import TransactionService from '../services/transaction.service';
+import UserService from '../services/user.service';
+import AccountService from '../services/account.service';
+import statusCodes from '../helpers/statusCodes';
 import sequelize from '../database/models';
 import { IUser } from '../interfaces/IUser';
 

@@ -1,12 +1,10 @@
 import { Request, Response } from "express";
 import statusCodes from "../helpers/statusCodes";
 import UserService from "../services/user.service";
-import TransactionService from "../services/transaction.service";
 
 export default class UserController {
   constructor(
     private _userService: UserService = new UserService(),
-    private _transactionService: TransactionService = new TransactionService(),
   ) {}
 
   public async login(req: Request, res: Response) {

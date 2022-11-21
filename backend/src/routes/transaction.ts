@@ -19,12 +19,12 @@ router
     (req: Request, res: Response) => controller.newTransaction(req, res),
   )
   .get(
-    '/:username/transactions',
+    '/transactions/:username',
     auth,
     (req: Request, res: Response) => controller.getTransactionsByUsername(req, res),
   )
   .get(
-    '/:username/transactions/filter-by-date',
+    '/transactions/filter-by-date/:username',
     auth,
     (req: Request, res: Response) => controller.filterTransactionsByDate(req, res),
   );

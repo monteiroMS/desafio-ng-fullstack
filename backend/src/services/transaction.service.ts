@@ -3,6 +3,8 @@ import ITransaction from '../interfaces/ITransaction';
 import { Transaction } from 'sequelize';
 import sequelize from '../database/models';
 import { Op } from "sequelize";
+import User from '../database/models/user.model';
+import Account from '../database/models/account.model';
 
 export default class TransactionService {
   constructor(
@@ -18,16 +20,36 @@ export default class TransactionService {
   }
 
   public async getCashOut(accountId: number) {
-    const cashOut = await this._model.findAll(
-      { where: { debitedAccountId: accountId } },
-    );
+    const cashOut = await this._model.findAll({
+      where: { debitedAccountId: accountId },
+      include: [{
+        model: Account,
+        as: 'debitedFrom',
+        include: [{ model: User, as: 'user', attributes: { exclude: ['password'] } }],
+      },
+      {
+        model: Account,
+        as: 'creditedIn',
+        include: [{ model: User, as: 'user', attributes: { exclude: ['password'] } }],
+      }]
+    });
     return cashOut;
   }
 
   public async getCashIn(accountId: number) {
-    const cashIn = await this._model.findAll(
-      { where: { creditedAccountId: accountId } },
-    );
+    const cashIn = await this._model.findAll({
+      where: { creditedAccountId: accountId },
+      include: [{
+        model: Account,
+        as: 'debitedFrom',
+        include: [{ model: User, as: 'user', attributes: { exclude: ['password'] } }],
+      },
+      {
+        model: Account,
+        as: 'creditedIn',
+        include: [{ model: User, as: 'user', attributes: { exclude: ['password'] } }],
+      }]
+    });
     return cashIn;
   }
 
@@ -43,6 +65,7 @@ export default class TransactionService {
       },
     );
     return cashOut;
+
   }
 
   public async getCashInByDate(accountId: number, date: string) {
