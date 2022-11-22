@@ -1,10 +1,10 @@
-import React, { useMemo, useState, createContext } from 'react';
+import React, { useMemo, useState, createContext, Dispatch, SetStateAction } from 'react';
 import IReactChildren from '../interfaces/IReactChildren';
 import IUser from '../interfaces/IUser';
 
 type UserContextType = {
   user: IUser,
-  setUser: (newState: IUser) => void,
+  setUser: Dispatch<SetStateAction<IUser>>,
 }
 
 const INITIAL_USER = {

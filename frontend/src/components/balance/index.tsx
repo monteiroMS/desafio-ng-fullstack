@@ -11,8 +11,8 @@ function Balance() {
   const [reload, setReload] = useState(false);
 
   const getUser = async () => {
-    const lsUser = getUserFromLS();
-    const updatedUser = await requestUser(lsUser.username, lsUser.token);
+    const { username, token } = getUserFromLS();
+    const updatedUser = await requestUser(username, token);
     setUser(updatedUser);
   };
 
