@@ -1,6 +1,7 @@
 import React, { useEffect, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Balance from '../../components/balance';
+import Footer from '../../components/footer';
 import Header from '../../components/header';
 import NewTransaction from '../../components/newTransaction';
 import TransactionHistory from '../../components/transactionHistory';
@@ -31,13 +32,16 @@ function Home() {
   }, []);
 
   return (
-    <div>
-      <Header />
-      <Balance />
+    <div className={ styles.container }>
+      <div className={ styles.headers }>
+        <Header />
+        <Balance />
+      </div>
       <main className={ styles.main }>
         <NewTransaction />
         <TransactionHistory />
       </main>
+      <Footer />
     </div>
   );
 }
