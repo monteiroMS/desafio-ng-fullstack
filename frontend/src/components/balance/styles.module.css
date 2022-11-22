@@ -4,4 +4,10 @@
   align-items: center;
   padding-right: 30px;
   border-bottom: 2px dashed black;
+  gap: 5px;
+}
+
+.money {
+  color: darkgreen;
+  font-weight: 700;
 }

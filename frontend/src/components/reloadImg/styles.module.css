@@ -1,0 +1,21 @@
+.btn {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  border: 2px solid black;
+  padding: 5px;
+  border-radius: 100%;
+}
+
+.btn img {
+  height: 20px;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background-color: black;
+}
+
+.btn:hover img {
+  filter: invert(1);
+}
