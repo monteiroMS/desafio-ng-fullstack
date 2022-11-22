@@ -72,34 +72,41 @@ function NewTransaction() {
       <form className={ styles.form }>
         <label className={ styles.label }>
           Nome do usuário destinatário
-          <input
-            type="text"
-            name="toUsername"
-            value={ transaction.toUsername }
-            onChange={ handleChange }
-            placeholder="nome do usuário"
-          />
-          <img
-            src={ userToIcon }
-            alt="icone de usuario em preto"
-            className={ styles.iconUser }
-          />
+          <div>
+            <img
+              src={ userToIcon }
+              alt="icone de usuario em preto"
+              className={ styles.iconUser }
+            />
+            <input
+              type="text"
+              name="toUsername"
+              value={ transaction.toUsername }
+              onChange={ handleChange }
+              placeholder="nome do usuário"
+            />
+          </div>
         </label>
         <label className={ styles.label }>
           Valor a ser transferido
-          <input
-            type="number"
-            name="value"
-            value={ transaction.value }
-            onChange={ handleChange }
-            placeholder="0.00"
-          />
-          <img
-            src={ dollarSign }
-            alt="simbolo do dolar em preto"
-            className={ styles.iconDollar }
-          />
+          <div>
+            <img
+              src={ dollarSign }
+              alt="simbolo do dolar em preto"
+              className={ styles.iconDollar }
+            />
+            <input
+              type="number"
+              name="value"
+              value={ transaction.value }
+              onChange={ handleChange }
+              placeholder="0.00"
+            />
+          </div>
         </label>
+        { loading && <Loading /> }
+        { error && <Error message={ error } /> }
+        { success && <p style={ { color: 'green' } }>Transação concluída com sucesso!</p> }
         <button
           type="submit"
           onClick={ doTransaction }
@@ -108,9 +115,6 @@ function NewTransaction() {
           Transferir
         </button>
       </form>
-      { loading && <Loading /> }
-      { error && <Error message={ error } /> }
-      { success && <p>Transação concluída com sucesso!</p> }
     </div>
   );
 }

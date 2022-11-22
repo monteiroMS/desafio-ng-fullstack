@@ -3,7 +3,7 @@
   justify-content: end;
   align-items: center;
   padding-right: 30px;
-  border-bottom: 2px dashed black;
+  border-bottom: 1px dotted black; 
   gap: 5px;
 }
 
