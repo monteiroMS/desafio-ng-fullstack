@@ -1,0 +1,13 @@
+.boxFilters {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-left: 20px;
+}
+
+.select {
+  border: 2px solid black;
+  background-color: transparent;
+  outline: 0;
+  padding: 2px 5px;
+}
