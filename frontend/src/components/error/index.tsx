@@ -1,9 +1,10 @@
 import React from 'react';
 import IErrorProps from '../../interfaces/IErrorProps';
+import styles from './styles.module.css';
 
 function Error({ message }: IErrorProps) {
   return (
-    <p>{ message }</p>
+    <p className={ styles.text }>{ message }</p>
   );
 }
 

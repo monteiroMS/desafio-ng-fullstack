@@ -1,8 +1,9 @@
 import React from 'react';
+import styles from './styles.module.css';
 
 function Loading() {
   return (
-    <p>Carregando...</p>
+    <p className={ styles.text }>Carregando...</p>
   );
 }
 

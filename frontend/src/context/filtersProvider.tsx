@@ -1,11 +1,11 @@
-import React, { useMemo, useState, createContext } from 'react';
+import React, { useMemo, useState, createContext, Dispatch, SetStateAction } from 'react';
 import IReactChildren from '../interfaces/IReactChildren';
 
 type FiltersContextType = {
   dateFilter: string,
-  setDateFilter: (newState: string) => void,
+  setDateFilter: Dispatch<SetStateAction<string>>,
   typeFilter: string,
-  setTypeFilter: (newState: string) => void,
+  setTypeFilter: Dispatch<SetStateAction<string>>,
 }
 
 const INITIAL_VALUE = {

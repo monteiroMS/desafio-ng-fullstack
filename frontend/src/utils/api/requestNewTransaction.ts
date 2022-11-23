@@ -12,7 +12,6 @@ export default async (transaction: ITransaction, authorization: string) => {
     return res.data;
   } catch (error) {
     if (axios.isAxiosError(error)) {
-      console.log(error);
       return {
         message: 'Houve um problema com a transação. Por favor, tente novamente',
       };

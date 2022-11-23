@@ -7,18 +7,21 @@ import IUserInfo from '../../interfaces/IUserInfo';
 import isUserValid from '../../utils/isUserValid';
 import { saveUserOnLS } from '../../utils/localStorage';
 import requestLoginOrSignin from '../../utils/api/requestLoginOrSignin';
+import styles from './styles.module.css';
 
 export const INITIAL_USER_INFO = {
   username: '',
   password: '',
 };
 
-const PASSWORD_REQUIREMENTS = `
-  Sua senha deve conter ao menos:
-    - uma letra maiúscula
-    - um número
-    - 8 caracteres
-`;
+const PASSWORD_REQUIREMENTS = (
+  <div className={ styles.requirements }>
+    <p>Sua senha deve conter ao menos:</p>
+    <p>- uma letra maiúscula</p>
+    <p>- um número</p>
+    <p>- 8 caracteres</p>
+  </div>
+);
 
 function UserForm({ type }: { type: 'login' | 'signin' }) {
   const [userInfo, setUserInfo] = useState<IUserInfo>(INITIAL_USER_INFO);
@@ -64,18 +67,21 @@ function UserForm({ type }: { type: 'login' | 'signin' }) {
   };
 
   return (
-    <form onSubmit={ sendToServer }>
-      <label>
+    <form
+      onSubmit={ sendToServer }
+      className={ styles.container }
+    >
+      <label className={ styles.label }>
         Insira seu nome de usuário
         <input
           type="text"
           name="username"
           onChange={ handleChange }
           value={ userInfo.username }
-          placeholder="username"
+          placeholder="nome de usuário"
         />
       </label>
-      <label>
+      <label className={ styles.label }>
         Insira sua senha
         <input
           type={ showPassword }
@@ -84,19 +90,21 @@ function UserForm({ type }: { type: 'login' | 'signin' }) {
           value={ userInfo.password }
           placeholder="senha"
         />
-        { type === 'signin' && PASSWORD_REQUIREMENTS }
       </label>
-      <label>
-        Mostrar senha
+      { error && <Error message={ error } /> }
+      <label className={ styles.showPasswordContainer }>
         <input
           type="checkbox"
           onChange={ handleShowPassword }
         />
+          Mostrar senha
       </label>
+      { type === 'signin' && PASSWORD_REQUIREMENTS }
       <button
         type="submit"
         onClick={ sendToServer }
         disabled={ isDisabled }
+        className={ styles.btn }
       >
         {
           type === 'login'
@@ -105,7 +113,6 @@ function UserForm({ type }: { type: 'login' | 'signin' }) {
         }
       </button>
       { loading && <Loading /> }
-      { error && <Error message={ error } /> }
     </form>
   );
 }

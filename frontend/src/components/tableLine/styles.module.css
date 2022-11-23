@@ -1,0 +1,19 @@
+.cash-in {
+  color: green;
+  font-weight: 700;
+}
+
+.cash-out {
+  font-weight: 700;
+}
+
+.container {
+  border-bottom: 1px dashed black;
+  display: flex;
+  justify-content: space-between;
+  padding: 15px 30px;
+}
+
+.container:last-of-type {
+  border: none;
+}

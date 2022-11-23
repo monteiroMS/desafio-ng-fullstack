@@ -6,8 +6,10 @@ import requestTransactions from '../../utils/api/requestTransactions';
 import getDate from '../../utils/getDate';
 import { getUserFromLS } from '../../utils/localStorage';
 import Error from '../error';
+import ReloadButton from '../reloadImg';
 import TableLine from '../tableLine';
 import TransactionTypeSelector from '../transactionTypeSelector';
+import styles from './styles.module.css';
 
 function TransactionHistory() {
   const { dateFilter, setDateFilter, typeFilter } = useContext(FiltersContext);
@@ -55,37 +57,46 @@ function TransactionHistory() {
 
   return (
     <div>
-      <h2>Minhas transações</h2>
-      <button
-        type="button"
-        onClick={ () => setReload(true) }
-      >
-        Atualizar
-      </button>
+      <div className={ styles.boxTitle }>
+        <h2>Minhas transações</h2>
+        <ReloadButton setReload={ setReload } />
+      </div>
       { error && <Error message={ error } /> }
       { !error && (
         <div>
-          <TransactionTypeSelector />
-          <input
-            type="text"
-            onChange={ ({ target: { value } }) => setDateFilter(value) }
-            placeholder="DD/MM/AAAA"
-          />
-          <button
-            type="button"
-            onClick={ filter }
-          >Aplicar filtros</button>
-          <table>
+          <div className={ styles.boxFilters }>
+            <p>Filtros:</p>
+            <TransactionTypeSelector />
+            <label className={ styles.boxFilters }>
+              Data
+              <input
+                type="text"
+                onChange={ ({ target: { value } }) => setDateFilter(value) }
+                placeholder="DD/MM/AAAA"
+                className={ styles.dateInput }
+              />
+              <button
+                type="button"
+                onClick={ filter }
+                className={ styles.filterBtn }
+              >
+                Filtrar
+              </button>
+            </label>
+          </div>
+          <table className={ styles.tableContainer }>
             <thead>
-              <tr>
+              <tr className={ styles.tableHeader }>
                 <th>Data</th>
                 <th>Usuário</th>
                 <th>Valor</th>
               </tr>
             </thead>
-            <tbody>
+            <tbody className={ styles.tableBody }>
               {
-                filteredTransactions.map((transaction, index) => (
+                filteredTransactions
+                  .sort((a, b) => b.id - a.id)
+                  .map((transaction, index) => (
                   <TableLine
                     key={ index }
                     transaction={ transaction }
