@@ -15,15 +15,13 @@ Para rodar esta aplicação é recomendado possuir Node(19.0.1), Docker(20.10.21
 
 ## Como rodar a aplicação localmente
 
-Clone a aplicação para um diretório no seu computador, entre na pasta da aplicação, execute o comando
+Clone a aplicação para um diretório no seu computador, entre na pasta da aplicação, execute o comando:
 
 ```
 npm start
 ```
 
-e aguarde os contâineres db, app_backend e app_frontend subirem
-
-Após o container do backend finalizar a execução dos seus scripts, já deve ser possível acessar a aplicação pela URL `http://localhost:3000/`.
+Aguarde os contâineres db, app_backend e app_frontend subirem. Após os containeres finalizarem a execução de seus scripts, já deve ser possível acessar a aplicação pela URL `http://localhost:3000/`.
 
 ## Informações adicionais
 
@@ -40,7 +38,7 @@ O banco de dados já deve estar populado ao iniciar a aplicação. Para testar a
 
 ### Estilização
 
- A aplicação ainda não possui layout totalmente responsivo e a estilização não está completa.
+ A aplicação ainda não possui layout totalmente responsivo, então para dispositivos mobile alguns elementos da iterface podem ficar desalinhados.
  
 ### Testes
 
