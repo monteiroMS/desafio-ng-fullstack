@@ -38,7 +38,7 @@ O banco de dados já deve estar populado ao iniciar a aplicação. Para testar a
 
 ### Estilização
 
- A aplicação ainda não possui layout totalmente responsivo, então para dispositivos mobile alguns elementos da iterface podem ficar desalinhados.
+ A aplicação ainda não possui layout totalmente responsivo, então para dispositivos mobile alguns elementos da interface podem ficar desalinhados.
  
 ### Testes
 
